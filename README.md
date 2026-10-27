@@ -19,6 +19,12 @@ Hyper-parameters can be modified with different arguments to main.py. We include
 
 Algorithms which TD3 compares against (PPO, TRPO, ACKTR, DDPG) can be found at [OpenAI baselines repository](https://github.com/openai/baselines). 
 
+### Research Harness subject
+This fork adds `rl_agent.py`, which exposes the training loop as `train(make_env, total_timesteps, seed)` on the
+[Gymnasium](https://gymnasium.farama.org/) API (`reset()` returns `(obs, info)`, `step()` returns
+`terminated` and `truncated`), for the Research Harness `gymnasium-rl` eval. `TD3.py` and `utils.py` are unchanged.
+TD3 needs continuous actions, so run the eval with `RL_EVAL_BENCHMARKS=benchmarks-continuous.toml`.
+
 ### Results
 Code is no longer exactly representative of the code used in the paper. Minor adjustments to hyperparamters, etc, to improve performance. Learning curves are still the original results found in the paper.
 
